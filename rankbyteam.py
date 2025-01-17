@@ -13,11 +13,9 @@ def rankTeam(votes:List[str])-> str:
             if value not in out:
                 out[value]=[0]*len(vote)
             out[value][key]+=1
-    print(out.keys())
-    print(sorted(out.keys(), key=lambda x:out[x], reverse=True))
-    ranked=sorted(out.keys(), key=lambda x:out[x], reverse=True)
-    print(out)
-    return ranked[:3]
+    ranked=''.join(sorted(out.keys(), key=lambda x:out[x], reverse=True))
+    #return ranked[:3]
+    return ranked, out
 #print(rankTeam(votes= ["WXYZ","XYZW"]))
 votes = [
     ["Beta", "Alpha", "Gamma"],
@@ -27,10 +25,6 @@ votes = [
     ["Alpha", "Gamma", "Beta"]
 ]
 
+votes1=["ABC","ACB","ABC","ACB","ACB"]
 
 print(rankTeam(votes = votes))
-
-tempout={
-    'ele1':[0,0,0],
-    'ele2':[0,0,0]
-}
